@@ -1,0 +1,65 @@
+.input-label-float,
+.textarea-label-float {
+    position: relative;
+    display: block;
+    height: auto;
+    width: 100%;
+}
+.input-label-float input::placeholder,
+.textarea-label-float textarea::placeholder {
+    opacity: 0;
+}
+.input-label-float span {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    right: 22px;
+    transition-duration: 200ms;
+    cursor: text;
+}
+.input-label-float input:not(:placeholder-shown) + span,
+.input-label-float:focus-within > span {
+    transform: translateY(-230%);
+    cursor: default;
+    font-size: 12px;
+    color: #666666;
+    right: 16px;
+}
+
+.textarea-label-float span {
+    position: absolute;
+    top: 1rem;
+    right: 22px;
+    transition-duration: 200ms;
+    cursor: text;
+}
+.textarea-label-float textarea:not(:placeholder-shown) + span,
+.textarea-label-float:focus-within > span {
+    transform: translateY(-185%);
+    cursor: default;
+    font-size: 12px;
+    right: 16px;
+}
+
+@media screen and (max-width : 992px) {
+    .input-label-float input:not(:placeholder-shown) + span,
+    .input-label-float:focus-within > span {
+        transform: translateY(-200%);
+        font-size: 12px;
+        color: #333333;
+    }
+
+    .input-label-float span, .textarea-label-float span {
+        right: 16px;
+    }
+
+    .textarea-label-float textarea:not(:placeholder-shown) + span,
+    .textarea-label-float:focus-within > span {
+        font-size: 12px;
+    }
+
+    .input-label-float span, .textarea-label-float span {
+        right: 16px;
+        /*top: 0.75rem;*/
+    }
+}

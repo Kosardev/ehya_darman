@@ -1,0 +1,86 @@
+@import url("./swiper.css");
+@import url("./input-label-float.css");
+/*@tailwind base;*/
+/*@tailwind components;*/
+/*@tailwind utilities;*/
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+body{
+    direction: rtl;
+    background: #fff;
+}
+input{
+    background: transparent;
+    outline: none;
+    border:none;
+}
+:root {
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --foreground-rgb: 255, 255, 255;
+        --background-start-rgb: 0, 0, 0;
+        --background-end-rgb: 0, 0, 0;
+    }
+}
+
+.hidden-scroll::-webkit-scrollbar{
+    display: none;
+}
+
+.flex-wrap{
+    flex-wrap: wrap;
+}
+.gap-8{
+    gap: 32px;
+}
+.mb-4{
+    margin-bottom: 16px;
+}
+.mb-8{
+    margin-bottom: 32px;
+}
+.mt-20{
+    margin-top: 80px;
+}
+.text-red-product{
+    color: #E5443E;
+}
+.border-red-product{
+    border-color: #E5443E;
+}
+
+@font-face {
+    font-family: kalamehFa;
+    src: url('../public/assets/fonts/KalamehWebFaNum-Bold-2.woff2');
+}
+@font-face {
+    font-family: iransans;
+    src: url('../public/assets/fonts/iransans/woff2/IRANSansX-Regular.woff2');
+}
+@font-face {
+    font-family: shabnam;
+    src: url('../public/assets/fonts/shabnam/woff2/Shabnam.woff2');
+}
+.font-kalamehFa{
+    font-family: kalamehFa;
+}
+.font-iransans{
+    font-family: iransans;
+}
+.font-shabnam{
+    font-family: shabnam;
+}
+.red-tag {
+    color: red;
+}
+.pt-2{
+    padding-top: 8px;
+}

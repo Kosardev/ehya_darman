@@ -1,6 +1,12 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import './globals.css'
+import '@/styles/globals.css'
+import { yekanBakh, yekanBakhEn } from "@/app/ui/fonts";// import "swiper/css";
+import '@/styles/globals.css';
+import "swiper/css";
+import "swiper/css/autoplay";
+import "swiper/css/effect-fade";
+import "swiper/css/navigation";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,8 +21,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="fa" dir="rtl"  className={`${yekanBakh.variable} ${yekanBakhEn.variable} `}>
+      <body className={inter.className}>
+          {children}
+      </body>
     </html>
   )
 }
