@@ -8,7 +8,7 @@ type SwiperRightArrowNewT = {
 }
 const SwiperRightArrowNew = forwardRef(({className}:SwiperRightArrowNewT , ref) => {
     return <div className={cn(`group prev-button-swiper-new` , className)} ref={ref as any}>
-        <Icon name="arrowPrev2" color={'fill-red-ehya group-hover:fill-white'}  className={"bg-white group-hover:bg-red-ehya rotate-180"} size={'w-10 h-10 3xl:w-16 3xl:h-16'} />
+        <Icon name="arrowPrev" color={'fill-red-ehya group-hover:fill-white'}  className={"bg-white group-hover:bg-red-ehya rotate-180"} size={'w-10 h-10 3xl:w-16 3xl:h-16'} />
     </div>;
 });
 SwiperRightArrowNew.displayName = "SwiperRightArrowNew";

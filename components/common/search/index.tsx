@@ -22,7 +22,7 @@ export default function Index({transparentHeader}:HeaderT) {
                    'border border-black ': !transparentHeader && showSearch,
                })}
         >
-            <Icon name='search' color={transparentHeader ? 'fill-white  group-hover:fill-red-ehya':'fill-black'} size='w-3 h-3 lg:w-6 lg:h-6'/>
+            <Icon name='search1' color={transparentHeader ? 'fill-white  group-hover:fill-red-ehya':'fill-black'} size='w-3 h-3 lg:w-6 lg:h-6'/>
             <input id='search'
                    value={searchTxt}
                    onChange={(e)=>setSearchTxt(e.target.value)}

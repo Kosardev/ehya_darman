@@ -3,7 +3,14 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="28f08ac4-9204-4647-9e0b-8a8a7085b406" name="ehya server">
-        <fileTransfer rootFolder="/root/services/ehya-front" accessType="SFTP" host="45.159.208.49" port="22" sshConfigId="c365190b-9372-42d8-b12d-8d29d4fd8d60" sshConfig="root@45.159.208.49:22 password">
+        <fileTransfer rootFolder="/root/services/ehya-front" accessType="SFTP" host="87.107.105.66" port="9011" sshConfigId="c365190b-9372-42d8-b12d-8d29d4fd8d60" sshConfig="root@87.107.105.66:9011 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="276f2fb4-d643-4624-9b44-e906d64e8140" name="ehya2">
+        <fileTransfer rootFolder="/root/services/front_2" accessType="SFTP" host="87.107.105.66" port="9011" sshConfigId="c365190b-9372-42d8-b12d-8d29d4fd8d60" sshConfig="root@87.107.105.66:9011 password">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>

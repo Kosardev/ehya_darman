@@ -2,7 +2,8 @@ import {Maybe, Scalars} from "@/lib/types/mainService";
 
 export type menuItem ={
     item: Maybe<Scalars["String"]>,
-    link: Maybe<Scalars["String"]>,
+    link?: Maybe<Scalars["String"]>,
+    code?: Maybe<Scalars["String"]>,
     children: Maybe<Array<menuItem>>,
     _id: Maybe<Scalars["ObjectID"]>,
 }

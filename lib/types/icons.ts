@@ -23,4 +23,6 @@ export type Icons =
     | "eye"
     | "eye-slash"
     | "cancel"
+    | "play"
+    | "facebook"
 ;

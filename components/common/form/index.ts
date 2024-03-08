@@ -11,6 +11,6 @@ export { default as InputLabelFloat } from "./inputLabelFloat";
 // export { default as SearchBox } from "./SearchBox/SearchBox";
 // export { default as ScoreSlider } from "./ScoreSlider";
 // export { default as CheckBox } from "./CheckBox";
-// export { default as TextArea } from './TextArea'
-// export { default as TextAreaLabelFloat } from './TextAreaLabelFloat'
+export { default as TextArea } from './textare'
+export { default as TextAreaLabelFloat } from './textareaLabelFloat'
 // export { default as SwipeCheckBox } from './SwipeCheckBox'

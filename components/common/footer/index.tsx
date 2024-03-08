@@ -43,8 +43,8 @@ export default async function Footer() {
                 </div>
                 <FooterLinks/>
             </BaseContainer>
-            <p className={'bg-black w-full flex items-center justify-center font-iransans py-2 text-xs 2xl:text-sm '}>
-                ۱۴۰۲ - 1391 تمامی حقوق مادی و معنوی این سایت متعلق به احیا درمان می‌باشد.
+            <p className={'bg-black w-full flex items-center justify-center font-shabnam py-2 text-xs 2xl:text-sm '}>
+                1402 - 1391 تمامی حقوق مادی و معنوی این سایت متعلق به احیا درمان می‌باشد.
             </p>
         </footer>
     )

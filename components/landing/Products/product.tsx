@@ -2,6 +2,7 @@ import {bookmarkedProduct,ClassName} from '@/lib/types'
 import Image from "@/components/common/Image";
 import Link from "@/components/common/Link";
 import cn from 'classnames'
+import {Paths} from "@/environment";
 
 type LandingProductT = {
     product?: bookmarkedProduct;
@@ -11,7 +12,7 @@ type LandingProductT = {
 export default function Product({ product,className }:LandingProductT){
     return (
         <div className={'w-full h-[270px] rounded-lg overflow-hidden group'}>
-            <Link href={product?.code??""} className={cn( ' flex overflow-hidden items-stretch' ,className.container) }>
+            <Link href={Paths.pdp+(product?.code??"")} className={cn( ' flex overflow-hidden items-stretch' ,className.container) }>
                 <Image src={product?.defaultImage??"../../public/img/DSC_3753.JPG"} width={428} height={268}
                        alt={""}
                        objectFit={'contain'}

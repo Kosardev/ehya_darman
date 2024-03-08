@@ -8,6 +8,7 @@ import Button from "@/components/common/button";
 import Icon from "@/components/common/Icon";
 import className from "classnames";
 import ProductSlider from "@/components/landing/Products/productSlider";
+import cn from "classnames";
 
 
 
@@ -20,9 +21,19 @@ export default function ProductsWrapper({ products }:LandingProductsWrapperT){
     for (let i = 0; i < Number(products?.length); i += 2) {
         chunkedProducts.push(products?.slice(i, i + 2));
     }
+    const [isVisible, setVisible] = useState(true);
+    const domRef = useRef() as any;
+    useEffect(() => {
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => setVisible(entry.isIntersecting));
+        });
+        observer.observe(domRef?.current);
+        return () => observer.unobserve(domRef?.current);
+    }, []);
+
 
     return (
-        <section className={'w-full pt-16 pr-12 4xl:pt-32 4xl:pr-64 flex gap-10 4xl:gap-20 overflow-hidden'}>
+        <section  ref={domRef} className={cn('w-full pt-16 pr-12 4xl:pt-32 4xl:pr-64 flex gap-10 4xl:gap-20 overflow-hidden aos-item',{"aos-fade-up":isVisible})}>
             <div className={'w-1/4'}>
                 <SubTitle title={'محصولات و خدمات'} icon={'plus'}/>
                 <Title title={'محصولات شرکت دانش بنیان احیا درمان پیشرفته '} className={'!max-w-[80%]'}/>

@@ -1,5 +1,5 @@
 "use client"
-import { ChangeEvent, FC, ForwardedRef, InputHTMLAttributes, forwardRef, memo, useState } from "react";
+import React, { ChangeEvent, FC, ForwardedRef, InputHTMLAttributes, forwardRef, memo, useState } from "react";
 import Input from "./input";
 
 import cn from "classnames";
@@ -24,7 +24,7 @@ type InputLabelFloatT = InputHTMLAttributes<HTMLInputElement> & {
     hide?:boolean
 };
 
-const InputLabelFloat: FC<InputLabelFloatT> = forwardRef(({ isRequired, label, error, errorMessage, bgColor, onChange, maxLength ,touched, savedPassword, autoFocus , classname,hide, ...props }, ref) => {
+const InputLabelFloat: FC<InputLabelFloatT> = forwardRef(({ isRequired, label, error, errorMessage, bgColor, onChange, maxLength ,touched, savedPassword, autoFocus , classname,hide,type, ...props }, ref) => {
 
 
         const [showContent, setShowContent] = useState(false);
@@ -33,7 +33,7 @@ const InputLabelFloat: FC<InputLabelFloatT> = forwardRef(({ isRequired, label, e
         }
 
         return (
-            <label className={cn("input-label-float rounded-lg border border-gray-300", {
+            <label className={cn("input-label-float rounded-lg border border-gray-300 font-shabnam", {
                     "!border-red": error,
                 },
                 classname?.label,
@@ -56,7 +56,7 @@ const InputLabelFloat: FC<InputLabelFloatT> = forwardRef(({ isRequired, label, e
                         classname?.input
                     )}
                     maxLength={maxLength}
-                    type={props.type?  (showContent? "text" : props.type): "text"}
+                    type={type?  (showContent? "text" :type): "text"}
 
                 />
                 <span className="flex items-center text-xs lg:text-sm font-medium text-gray-500 h-6">
@@ -73,7 +73,7 @@ const InputLabelFloat: FC<InputLabelFloatT> = forwardRef(({ isRequired, label, e
                         </p>
                     </div>
                 </Visible>
-                <Visible visible={props.type ==='password'}>
+                <Visible visible={type ==='password'}>
                     <div className="absolute left-0 w-[52px] h-full z-50 top-0 flex justify-center items-center" onClick={handleClickShowPassword}>
                         <Icon name={showContent?"eye": 'eye-slash'} color="fill-gray-800" size='w-5 h-5' className={cn("block",{"!hidden":error})} />
                     </div>

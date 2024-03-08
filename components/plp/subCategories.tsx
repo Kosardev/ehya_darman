@@ -16,7 +16,7 @@ type SubCategoriesT = {
 };
 const SubCategories: FC<SubCategoriesT> = ({ data}) => {
     const sliderRef = useRef<HTMLDivElement>(null);
-    const [ showArrows, setShowArrows ] = useState<boolean>(true)
+    const [ showArrows, setShowArrows ] = useState<boolean>(false)
     const handleNextSlide = (offset: number) => {
         if (sliderRef.current?.parentElement) {
             sliderRef.current.parentElement.classList.add("scroll-smooth")
@@ -43,14 +43,15 @@ const SubCategories: FC<SubCategoriesT> = ({ data}) => {
         }
 
     }, [data])
+
     return (
-        <div className="shadow-100 rounded-[10px] font-kalamehFa m-4 xl:mx-8  3xl:mx-11 xl:mt-10 2xl:mt-12 3xl:mt-16 xl:mb-14 2xl:mb-[72px] 3xl:mb-24 ">
+        <div className="relative shadow-100 rounded-[10px] font-kalamehFa m-4 xl:mx-8  3xl:mx-11 xl:mt-10 2xl:mt-12 3xl:mt-16 xl:mb-14 2xl:mb-[72px] 3xl:mb-24 ">
             <ScrollableContent>
                 <div className={classNames(" flex gap-6 xl:gap-12 scroll-smooth h-[60px] justify-center ")}
                      ref={sliderRef}>
                 {data?.map((sub,index)=>
                     <Link key={index}
-                        href={Paths.plp+"/"+sub?.code??null}
+                        href={Paths.plp+sub?.code??null}
                         className="text-green-dark w-fit h-full flex items-center p-2">
                         {sub.title}
                     </Link>

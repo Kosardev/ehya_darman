@@ -89,7 +89,7 @@ export default class RequestBuilder {
         return (await this.ExecuteAsync()).data;
     }
 
-    async ExecuteAsync<T>(): Promise<AxiosResponse<T>> {
+    async ExecuteAsync<T>(): Promise<Promise<AxiosResponse<any>> | any> {
         let url = new URL(this.url, this.baseUrl).toString();
 
         if (this.queryParams?.length) {
@@ -104,15 +104,20 @@ export default class RequestBuilder {
             this.defaultHeader[item.key] = item.value;
         });
 
-        const result = await axios({
-            method: this.method,
-            headers: this.defaultHeader,
-            withCredentials: true,
-            url,
-            data: this.body,
-            onUploadProgress: this.progressCallBack,
-        });
+        try {
+            const result = await axios({
+                method: this.method,
+                headers: this.defaultHeader,
+                withCredentials: true,
+                url,
+                data: this.body,
+                onUploadProgress: this.progressCallBack,
+            });
+            return result;
+        }catch (err){
+            console.log(err)
+        }
 
-        return result;
+
     }
 }

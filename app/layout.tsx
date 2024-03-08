@@ -1,14 +1,15 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import '@/styles/globals.css'
+// import '@/styles/globals.css'
 import { yekanBakh, yekanBakhEn } from "@/app/ui/fonts";// import "swiper/css";
-import '@/styles/globals.css';
+// import '@/styles/globals.css';
 import "swiper/css";
 import "swiper/css/autoplay";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
+import '../styles/globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
+// const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -22,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fa" dir="rtl"  className={`${yekanBakh.variable} ${yekanBakhEn.variable} `}>
-      <body className={inter.className}>
+      <body>
           {children}
       </body>
     </html>

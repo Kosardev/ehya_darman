@@ -23,10 +23,10 @@ export type productList ={
 }
 export type productsData ={
     count?: Maybe<Scalars["Int"]>;
-    products?: productList[],
+    products?: Maybe<Array<Maybe<productList>>>,
 }
 export type List = {
-    banner?: banner,
-    subCategories?: subCategories[],
-    productsData?: productsData[],
+    banner?: Maybe<banner>,
+    subCategories?: Maybe<Array<Maybe<subCategories>>>,
+    productsData?: Maybe<productsData>,
 }

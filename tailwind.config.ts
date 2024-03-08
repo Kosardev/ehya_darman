@@ -1,9 +1,10 @@
+const withMT = require("@material-tailwind/react/utils/withMT");
 import type { Config } from 'tailwindcss'
 
 const defaultColors = require("tailwindcss/colors");
 const defaultThemes = require("tailwindcss/defaultTheme");
 
-const config: Config = {
+const config = withMT({
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -47,6 +48,7 @@ const config: Config = {
       120: "0px 4px 12px 0px rgba(0, 0, 0, 0.2)",
       150: "0px 4px 20px 0px rgba(0, 0, 0, 0.25)",
       200: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
+      dropDown: '0px 6px 40px rgba(0, 0, 0, 0.1);',
     },
     borderWidth: {
       DEFAULT: '1px',
@@ -72,6 +74,7 @@ const config: Config = {
         DEFAULT: defaultColors.black,
         100: 'rgba(0, 0, 0, 0.1)',
         850: 'rgba(0, 0, 0, 0.85)',
+        2: '#010101',
         'dark': '#020202',
       },
       primary: {
@@ -90,6 +93,8 @@ const config: Config = {
         '2': '#222',
         '86': '#868686',
         '32': '#323232',
+        'f6': '#F6F5F5',
+        'e1': '#E1DFDD',
         form:'#e0e0e2',
 
         50: "#fcfeff",
@@ -115,5 +120,5 @@ const config: Config = {
     }
   },
   plugins: [],
-}
+})
 export default config

@@ -16,7 +16,7 @@ const Input: FC<IInput> = forwardRef(({ className, inputHeight, disabled, touche
     return (
         <input
             className={cn([
-                "xl:py-1 w-full outline-none placeholder-gray !caret-primary-200 text-gray-700 font-yekanBakh ",
+                "xl:py-1 w-full outline-none placeholder-gray !caret-primary-200 text-gray-700 font-shabnam ",
                 {
                     "h-12 xl:h-[3.5rem] rounded-lg px-4 lg:!px-[22px]": inputHeight === "xl",
                     "h-12 rounded-lg px-4": inputHeight === "lg",

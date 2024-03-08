@@ -13,10 +13,12 @@ export default async function FooterLinks() {
                     <div key={key}>
                         <h6 className={'font-kalamehFa font-bold text-2xl mb-3 lg:text-xl lg:mb-6'}>{item?.title}</h6>
                         <ul className={'flex flex-col gap-1.5 lg:gap-3 font-regular mb-5 lg:mb-0 text-sm max-w-[280px]'}>
-                            {item?.items?.map((item2:footerLinkItem,key2)=>
-                                <li key={key2}>
-                                    <Link href={item2?.link??''} className={'font-iransans text-lg flex gap-1'} title={item2?.title??''}>
-                                        {item2?.icon && <Icon name={item2?.name as Icons ??undefined} color={'fill-white'} size={'w-4 h-4'}/>}
+                            {item?.items?.map((item2:footerLinkItem,key2)=> <li key={key2}>
+                                    <Link href={item2?.link ?? ''} className={'font-shabnam text-lg flex gap-2'}
+                                          title={item2?.title ?? ''}>
+                                        {item2?.icon &&
+                                            <Icon name={item2?.icon as Icons ?? undefined} color={'fill-white'}
+                                                  size={'w-4 h-6'}/>}
                                         {item2?.item}
                                     </Link>
                                 </li>
