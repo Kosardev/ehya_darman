@@ -16,7 +16,7 @@ export default function ProductMenu({  menuItem,changeActive,active}: ProductMen
 
     return (
        <>
-           <ul className={className('flex min-w-[200px] w-max flex-col gap-2 bg-white p-2 divide-y')}>
+           <ul className={className(' flex min-w-[200px] w-max flex-col gap-2 bg-white-near p-2 divide-y')}>
                {menuItem?.children?.map((child,key2)=>
                    <li key={child._id}
                        className='flex flex-col grow text-red-ehya p-2 relative'>
@@ -30,7 +30,7 @@ export default function ProductMenu({  menuItem,changeActive,active}: ProductMen
                                    key={key3}
                                    onMouseEnter={(e)=>{
                                        e.stopPropagation()
-                                       changeActive([1,key2,key3])
+                                       changeActive([0,key2,key3])
                                    }}
                                    className='flex  gap-2 justify-between text-black-dark hover:text-red-ehya p-2 text-center group relative'>
                                    {/*<Link href={child2.link??""}>{child2.item}</Link>*/}
@@ -41,7 +41,7 @@ export default function ProductMenu({  menuItem,changeActive,active}: ProductMen
                                        <Icon name='arrow-left' color='fill-black-dark'/>
                                    </Visible>
                                    <Visible visible={!!child2?.children?.length && active[1]===key2 && active[2]===key3}>
-                                       <ul className={className('absolute top-0 -left-full flex min-w-[200px] w-full flex-col gap-1 bg-white px-2 divide-y')}>
+                                       <ul className={className('absolute top-0 -left-full flex min-w-[200px] w-full flex-col gap-1 bg-white-near px-2 divide-y')}>
                                            {child2?.children?.map((child3,key4)=>
                                                <li key={child3._id}
                                                    className='text-black-dark text-sm hover:text-red-ehya pt-2 pb-1 px-2 last:pb-2 text-center group relative'>

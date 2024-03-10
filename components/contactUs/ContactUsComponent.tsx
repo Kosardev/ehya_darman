@@ -50,8 +50,8 @@ export default function ContactUsComponent({data,citiesBranches}:ContactUsWrappe
         }
         console.log("generateContent",selectedBranch,item,data?.branches)
         return(
-            <div className={"w-full flex justify-between gap-6 mb-[42px] "}>
-                <ul className={"flex flex-col grow gap-4 max-w-[53%]"}>
+            <div className={"w-full flex flex-wrap lg:flex-nowrap justify-between gap-6 mb-[42px] "}>
+                <ul className={"flex flex-col grow gap-4  lg:max-w-[53%]"}>
                     <li className={"w-full flex items-center justify-between gap-8 text-black font-shabnam [&>*]:font-regular [&>*]:text-base"}>
                         <span className={"text-[18px] font-regular min-w-[110px]"}>آدرس دفتر:</span>
                         <span className={"text-right grow"}>{item?.address??""}</span>
@@ -81,8 +81,8 @@ export default function ContactUsComponent({data,citiesBranches}:ContactUsWrappe
                     <li className={"w-full flex items-center  gap-8 text-black font-shabnam [&>*]:font-regular [&>*]:text-base"}>
                         <span className={"text-[18px] font-regular min-w-[110px]"}>فضای اجتماعی:</span>
                         <ul className={"text-right  border border-black flex items-center"}>
-                            {item?.socialMedias?.map((item2,key)=>
-                                <li className={"w-11 h-11 flex items-center justify-center border-l border-black last:border-0"}>
+                            {item?.socialMedias?.map((item2,key2)=>
+                                <li className={"w-11 h-11 flex items-center justify-center border-l border-black last:border-0"} key={key2}>
                                     <a href={item2?.link??""}>
                                         <Icon name={item2?.icon as Icons??""} color={"stroke-black-2"} size={"h-6 w-6"}/>
                                         {/*<span className={"text-right grow"}>{item2?.icon??""}</span>*/}
@@ -115,7 +115,7 @@ export default function ContactUsComponent({data,citiesBranches}:ContactUsWrappe
     return (
         <BaseContainer>
             <h1 className={"w-full text-black-2 font-shabnam font-bold text-xl my-[60px]"}>با ما در تماس باشید</h1>
-            <div className={"flex items-center gap-10  mb-[57px]"}>
+            <div className={"flex flex-wrap lg:flex-nowrap items-center gap-10  mb-[57px]"}>
                 <div className={"w-full md:w-[40%] lg:w-[350px] relative"} ref={branchesRef}>
                     <button className={"w-full border-b border-black pb-2 flex items-center justify-between px-1"} onClick={()=>setBranchOpen(!branchOpen)}>
                         <span className={"text-black-2 font-shabnam font-bold text-lg"}>{selectedBranch?selectedBranch?.title:"شعبه"}</span>
@@ -177,7 +177,7 @@ export default function ContactUsComponent({data,citiesBranches}:ContactUsWrappe
             </div>
             <div className={"w-full mb-[60px]"}>
                 <h2 className={"w-full text-black-2 font-shabnam font-bold text-xl mb-[42px] "}>از طریق فرم زیر با ما در تماس باشید</h2>
-                <div className={"flex items-stretch justify-between gap-20"}>
+                <div className={"flex flex-wrap lg:flex-nowrap items-stretch justify-between gap-20"}>
                     <ContactForm
                         // cities={citiesBranches?.cities?.map((item)=>{return {value:item?.code , label:item?.title}})??[]}
                     />

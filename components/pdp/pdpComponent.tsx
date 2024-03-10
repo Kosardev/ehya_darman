@@ -7,7 +7,7 @@ import Image from "@/components/common/Image";
 import {ProductPageType} from "@/lib/types";
 import Link from "@/components/common/Link";
 import ThreeD from "@/components/pdp/threeD";
-import PdpTabs from "@/container/pdp/tabs";
+import PdpTabs from "@/components/pdp/tabs";
 import { SocialIcon } from 'react-social-icons'
 import {
     Dialog,

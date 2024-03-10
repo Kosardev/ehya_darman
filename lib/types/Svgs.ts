@@ -1,4 +1,4 @@
-export type Svgs =
+export type TSvgs =
     | "aboutUsBg"
     | "contactUsBg"
     | "contactFormBg"

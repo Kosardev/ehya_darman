@@ -9,7 +9,7 @@ import {Footer, footerLinkItem} from "@/lib/types";
 import AspectRatio from "@/components/common/aspectRatio";
 import {Icons} from "@/lib/types";
 
-export default async function Footer() {
+export default async function CFooter() {
     const data : Footer | null = await getFooter()
     return (
         <footer className={'w-full bg-gray-2 font-iransans text-white '}>

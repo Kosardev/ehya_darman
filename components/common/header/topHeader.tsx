@@ -2,6 +2,7 @@ import BaseContainer from "@/components/common/baseContainer";
 import Link from 'next/link';
 import Icon from "@/components/common/Icon";
 import cn from "classnames"
+import {Paths} from "@/environment";
 
 interface IHeader {
     transparentHeader?:boolean
@@ -18,7 +19,7 @@ export default function TopHeader({transparentHeader}:IHeader) {
                     <li><Link href={`#`}>
                         ویدیوهای آموزشی
                     </Link></li>
-                    <li><Link href={`#`}>
+                    <li><Link href={Paths.contactUs}>
                         تماس با ما
                     </Link></li>
                     <li><Link href={`#`}  className='flex  items-center gap-2 lg:gap-4'>

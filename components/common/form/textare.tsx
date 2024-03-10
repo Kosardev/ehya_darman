@@ -7,7 +7,7 @@ interface TextAreaT extends TextareaHTMLAttributes<HTMLTextAreaElement> {
     disabled?: boolean;
 }
 
-const TextArea: FC<TextAreaT> = forwardRef(({ className, height, disabled, ...props }, ref) => {
+const TextArea = forwardRef(({ className, height, disabled, ...props }:TextAreaT, ref: ForwardedRef<HTMLTextAreaElement>) => {
     return (
         <textarea
             className={cn([
@@ -23,5 +23,5 @@ const TextArea: FC<TextAreaT> = forwardRef(({ className, height, disabled, ...pr
         />
     );
 });
-
+TextArea.displayName = "CustomTextArea";
 export default memo(TextArea);

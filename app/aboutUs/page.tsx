@@ -4,7 +4,7 @@ import AboutUsContent from "@/container/aboutUsContent";
 
 export default function Page() {
     return (
-        <ScreenLayout>
+        <ScreenLayout >
             <AboutUsContent/>
         </ScreenLayout>
     )

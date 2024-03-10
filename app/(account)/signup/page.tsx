@@ -7,6 +7,8 @@ import ErrorField from "@/components/common/form/errorField";
 import {signUp} from "@/lib/types/account";
 import {Scalars} from "@/lib/types";
 import {useState} from "react";
+import {SignUp} from "@/application/account";
+import {ValidationError} from "yup";
 type formValues = signUp &{
     confirmPassword: Scalars["String"]
 };
@@ -58,11 +60,22 @@ export default function SignupPage() {
         confirmPassword: "",
     })
     const submitData =async () => {
-        // try {
-        //     // const result =
-        // }
+        const obj ={
+            firstName:form?.firstName??"",
+            lastName: form?.lastName??"",
+            phone: form?.phone??"",
+            email: form?.email??"",
+            password: form?.password??"",
+        }
+        const result = await SignUp(obj)
+        console.log("result",result)
+        if(!result?.data?.error){
+
+        }else{
+
+        }
     }
-    const submit =async (e) => {
+    const submit =async (e:any) => {
         e.preventDefault()
         const validation = schema.validate(form,{abortEarly:false}).then(()=>{
             setError({
@@ -77,8 +90,9 @@ export default function SignupPage() {
             submitData()
         }).catch((validationErrors)=>{
             const newErrorState = {};
-            validationErrors.inner.forEach((error) => {
-                newErrorState[error.path] = error.message;
+            validationErrors.inner.forEach((error:ValidationError) => {
+                if(newErrorState as any)
+                newErrorState[error?.path??'0'] = error.message;
             });
             setError(newErrorState as formValues);
             console.log("Form data is invalid");

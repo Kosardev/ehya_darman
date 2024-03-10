@@ -10,7 +10,7 @@ export const Uri = {
     signupServiceIP:SiteAddress+"/auth/signup",
     contactFormIP:SiteAddress+"/general/registerRequest",
     contactUsIP:SiteAddress+"/general/contactUs",
-    branchesIP:SiteAddress+"/general/branches'",
+    branchesIP:SiteAddress+"/general/branches",
     aboutIP:SiteAddress+"/general/aboutUs",
     ServiceIP: SiteAddress,
 } as const;
@@ -21,4 +21,6 @@ export const Paths = {
     pdp : "/product/",
     login : "/login/",
     signup : "/signup/",
+    contactUs : "/contactUs/",
+    aboutUs : "/aboutUs/",
 } as const;

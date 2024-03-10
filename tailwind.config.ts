@@ -43,6 +43,7 @@ const config = withMT({
     extend: {
     },
     boxShadow: {
+      menu: "0px 8px 10px rgba(0, 0, 0, 0.3)",
       50: "0px -3px 4px rgba(50, 50, 71, 0.08)",
       100: "0px -1px 5px 1px rgba(50, 50, 71, 0.08)",
       120: "0px 4px 12px 0px rgba(0, 0, 0, 0.2)",
@@ -63,6 +64,7 @@ const config = withMT({
       white: {
         DEFAULT: defaultColors.white,
         500: 'rgba(255,255,255,0.5)',
+        near: '#FDFDFD',
 
       },
       green: {

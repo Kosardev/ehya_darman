@@ -1,10 +1,10 @@
 'use client'
-import {useMemo, useRef, useState} from "react";
+import {useMemo, useRef} from "react";
 import { Navigation } from "swiper";
 import { SwiperProps } from "swiper/react";
 import { Swiper } from "@/components/common/Swiper";
 import { BreakPoints } from "@/lib/constants/breakpoints";
-import {bookmarkedProduct, Maybe} from "@/lib/types";
+import {bookmarkedProduct} from "@/lib/types";
 import Product from "@/components/landing/Products/product";
 import SwiperLeftArrowNew from "@/components/common/Swiper/SwiperLeftArrowNew";
 import SwiperRightArrowNew from "@/components/common/Swiper/SwiperRightArrowNew";
@@ -41,24 +41,6 @@ export default function ProductSlider({ data, isMobile }:ProductSliderT) {
             },
         };
     }, []);
-
-    const handleNextClick = (e:any) => {
-        e.preventDefault()
-        // const swiperInstance = swiperRef.current.swiper;
-        // console.log("currentIndex",!!swiperInstance)
-        // if (swiperInstance) {
-        //     const currentIndex = swiperInstance.realIndex;
-        //     const nextIndex = (currentIndex + 2) % data?.length;
-        //     console.log("currentIndex",currentIndex,data?.length,nextIndex)
-        //     swiperInstance.slideTo(nextIndex);
-        // }
-    };
-    const handlePrevClick = (e:any) => {
-        e.preventDefault()
-        // const currentIndex = swiperRef.current.swiper.realIndex;
-        // const nextIndex = currentIndex - 2 < data?.length ? currentIndex - 2 : 0;
-        // swiperRef.current.swiper.slideTo(nextIndex, 0, false);
-    };
 
     return ( <div className=" relative">
         <Swiper {...swiperConfig}

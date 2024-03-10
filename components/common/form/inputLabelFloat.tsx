@@ -24,7 +24,8 @@ type InputLabelFloatT = InputHTMLAttributes<HTMLInputElement> & {
     hide?:boolean
 };
 
-const InputLabelFloat: FC<InputLabelFloatT> = forwardRef(({ isRequired, label, error, errorMessage, bgColor, onChange, maxLength ,touched, savedPassword, autoFocus , classname,hide,type, ...props }, ref) => {
+const InputLabelFloat = forwardRef(
+    ({ isRequired, label, error, errorMessage, bgColor, onChange, maxLength ,touched, savedPassword, autoFocus , classname,hide,type, ...props }:InputLabelFloatT, ref: ForwardedRef<HTMLInputElement>) => {
 
 
         const [showContent, setShowContent] = useState(false);

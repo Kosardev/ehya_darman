@@ -15,6 +15,7 @@ import Image from "@/components/common/Image";
 import {ProductPageType} from "@/lib/types";
 import Icon from "@/components/common/Icon";
 import {useState} from "react";
+import VideoTab from "@/components/pdp/videoTab";
 
 export default function PdpTabs({ data }:ProductPageType) {
 
@@ -26,9 +27,7 @@ export default function PdpTabs({ data }:ProductPageType) {
 
             <Visible visible={!!(data?.introduction?.text || data?.expertCheck?.data?.length  || data?.frequentlyAskedQuestions?.length|| data?.videos?.length || data?.technicalData?.length )}>
                 <Tabs theme id="custom-animation" value="introduction">
-                    <TabsHeader className={"tabHeaders"} indicatorProps={{
-                        className: "!hidden",
-                    }}>
+                    <TabsHeader className={"tabHeaders"}>
                         {!!data?.introduction?.text && <Tab activeClassName="bg-gray-e1 text-red-ehya !px-5 text-xl font-bold" key={"Introduction"}  value={"introduction"}>معرفی</Tab>}
                         {!!data?.expertCheck?.data?.length && <Tab activeClassName="bg-gray-e1 text-red-ehya !px-5 text-xl font-bold" key={"ExpertCheck"}  value={"expertCheck"}>بررسی تخصصی</Tab>}
                         {!!data?.technicalData?.length && <Tab activeClassName="bg-gray-e1 text-red-ehya !px-5 text-xl font-bold" key={"TechnicalData"}  value={"technicalData"}>مشخصات فنی</Tab>}
@@ -99,23 +98,14 @@ export default function PdpTabs({ data }:ProductPageType) {
                                 </ul>
                             </BaseContainer>
                         </TabPanel>}
-                        {!!data?.videos?.length && <TabPanel className={"bg-gray-e1"} key={"Videos"}  value={"videos"}>
-                            <BaseContainer>
-                                <div className={"flex gap-5 lg:gap-10 items-center flex-wrap tabContentWrapper"}>
-                                    {data?.videos?.map(item => <div className={"tabVideo"}  key={item?._id}>
-                                        <video className={" tabImage"} controls>
-                                            <source src={item?.image ?? ""} type={"video/mp4"}/>
-                                        </video>
-                                        <h3>{item?.title}</h3>
-                                    </div>)}
-                                </div>
-                            </BaseContainer>
+                        {!!data?.videos?.length && <TabPanel className={"bg-gray-e1"} key={"Videos"}  value={"videos"} data-value={"videos"}>
+                            <VideoTab videos={data?.videos}/>
                         </TabPanel>}
                         {!!data?.frequentlyAskedQuestions?.length && <TabPanel className={"bg-gray-e1"} key={"FrequentlyAskedQuestions"}  value={"frequentlyAskedQuestions"}>
                             <BaseContainer>
                                 {data?.frequentlyAskedQuestions?.map((item,key) =>
                                     <Accordion className={"bg-white-500 rounded-xl mb-4"} key={key} open={open === key}>
-                                        <AccordionHeader className={"font-shabnam px-4 border-0"}  onClick={() => handleOpen(key)}>{item?.question}</AccordionHeader>
+                                        <AccordionHeader className={"text-base font-shabnam px-4 border-0"}  onClick={() => handleOpen(key)}>{item?.question}</AccordionHeader>
                                         <AccordionBody  className={"font-shabnam px-4 border-t border-black-100"}>
                                             {item?.answer}
                                         </AccordionBody>

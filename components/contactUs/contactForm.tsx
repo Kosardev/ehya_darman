@@ -85,7 +85,7 @@ export default function ContactForm() {
                     <div className="relative w-[300px] mb-4">
                         <InputLabelFloat
                             classname={{input:'leading-[18px] xs:leading-5 !w-full', label:error?.fullName?"border-red-ehya" : " focus-within:border-primary-200 "}}
-                            autoFocus={true}
+
                             label="نام و نام خانوادگی خود را وارد کنید"
                             type={"text"}
                             value={form?.fullName??""}

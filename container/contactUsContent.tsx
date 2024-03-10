@@ -7,6 +7,7 @@ import ContactUsComponent from "@/components/contactUs/ContactUsComponent";
 export default async function ContactUsContent() {
     const data =await getContactInfo()
     const citiesBranches =await getCitiesAndBranches()
+    console.log("citiesBranches",citiesBranches)
     return (
         <BaseContainer>
             <ContactUsComponent data={data} citiesBranches={citiesBranches}/>

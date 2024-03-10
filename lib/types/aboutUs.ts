@@ -9,9 +9,9 @@ export type aboutUsItem = {
 export type AboutUsType = {
     _id?: Maybe<Scalars["ObjectID"]>;
     banner?: aboutUsItem;
-    section_1?: aboutUsItem;
-    section_2?: aboutUsItem;
-    section_3?: aboutUsItem;
+    aboutUs?:aboutUsItem;
+    history?:aboutUsItem;
+    vision?:aboutUsItem;
     locale?: Maybe<Scalars["String"]>;
     createdAt?:Maybe<Scalars["String"]>;
     updatedAt?:Maybe<Scalars["String"]>;

@@ -16,8 +16,8 @@ type TextAreaLabelFloatT = {
     classname?: { [key in "label" | "textarea"]?: ClassName };
 };
 
-const TextAreaLabelFloat: FC<TextAreaLabelFloatT> = forwardRef(
-    ({ isRequired, label, onChange, maxLength , value,error,bgColor,classname}, ref=null) => {
+const TextAreaLabelFloat = forwardRef(
+    ({ isRequired, label, onChange, maxLength , value,error,bgColor,classname}:TextAreaLabelFloatT, ref:ForwardedRef<HTMLTextAreaElement>=null) => {
         return (
             <label className={cn("textarea-label-float rounded-lg border border-gray-300 font-yekanBakh h-28 ", {
                     "!border-red": error,

@@ -55,14 +55,14 @@ export default function Navbar({ menu,transparentHeader}: NavbarProps) {
                                })}>
                                 {/*className='flex justify-center items-center relative after:content-[""] after:w-full after:h-0.5 after:absolute after:bottom-0 px-4 pb-4 hover:after:bg-red-ehya '>*/}
                                <span className={"cursor-pointer"}>
-                                   {menuItem.code?<Link href={ Paths.plp+menuItem.code}>{menuItem.item}</Link> : menuItem.item}
+                                   {menuItem.code?<Link href={ Paths.plp+menuItem.code}>{menuItem.item}</Link> :menuItem.link? <Link href={ menuItem.link}>{menuItem.item}</Link> : menuItem.item}
                                </span>
                                <Visible visible={!!menuItem.children?.length}>
                                    <div className={className('min-w-[200px] bg-white absolute -right-1/2 top-full divide-x divide-x-2 rounded-b-md  z-10 ',{
                                        'flex ' : key===activeMenu[0],
                                        'hidden' : key!==activeMenu[0]
                                    })}>
-                                       <Visible visible={key===1}>
+                                       <Visible visible={key===0}>
                                            <ProductMenu
                                                changeActive={(e:number[])=> {
                                                    setActiveMenu(e)
@@ -71,8 +71,8 @@ export default function Navbar({ menu,transparentHeader}: NavbarProps) {
                                                menuItem={menuItem}
                                            />
                                        </Visible>
-                                       <Visible visible={key!==1}>
-                                           <ul className={className('flex min-w-[200px] w-max flex-col gap-2 bg-white p-2 divide-y')}>
+                                       <Visible visible={key!==0}>
+                                           <ul className={className('flex min-w-[200px] w-max flex-col gap-2 bg-white-near p-2 divide-y')}>
                                                {menuItem?.children?.map((child,key2)=>
                                                    <li key={child._id}
                                                        onMouseEnter={(e)=>{
@@ -88,7 +88,7 @@ export default function Navbar({ menu,transparentHeader}: NavbarProps) {
                                                            <Icon name='arrow-left' color='fill-black-dark'/>
                                                        </Visible>
                                                        <Visible visible={!!child?.children?.length && activeMenu[1]===key2}>
-                                                           <ul className={className('absolute w-full -left-full top-0 flex min-w-[200px] flex-col gap-2 bg-white p-2 divide-y')}>
+                                                           <ul className={className('absolute w-full -left-full top-0 flex min-w-[200px] flex-col gap-2 bg-white-near p-2 divide-y')}>
                                                                {child?.children?.map((child2,key3)=>
                                                                    <li key={child2._id}
                                                                        onMouseEnter={(e)=>{
@@ -105,7 +105,7 @@ export default function Navbar({ menu,transparentHeader}: NavbarProps) {
                                                                            <Icon name='arrow-left' color='fill-black-dark'/>
                                                                        </Visible>
                                                                        <Visible visible={!!child2?.children?.length && activeMenu[2]===key3}>
-                                                                           <ul className={className('absolute top-0 w-full -left-full flex min-w-[200px] flex-col gap-2 bg-white p-2 divide-y')}>
+                                                                           <ul className={className('absolute top-0 w-full -left-full flex min-w-[200px] flex-col gap-2 bg-white-near p-2 divide-y')}>
                                                                                {child2?.children?.map((child3,key4)=>
                                                                                    <li key={child3._id}
                                                                                        className='text-black-dark hover:text-red-ehya p-2 text-center group relative'>

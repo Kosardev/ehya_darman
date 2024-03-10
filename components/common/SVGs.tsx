@@ -1,8 +1,8 @@
 import Image from "./Image";
-import { Svgs } from "@/lib/types";
+import { TSvgs } from "@/lib/types";
 
 type SvgsT = {
-    name: Svgs;
+    name: TSvgs;
     width: number;
     height: number;
     alt?: string

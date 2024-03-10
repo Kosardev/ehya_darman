@@ -182,13 +182,17 @@ input{
     padding-right: 20px;
     padding-left: 20px;
 }
-.customSelectedTabStyle>div:last-child{
+.tabHeaders >li.text-red-ehya>div:nth-of-type(2){
     display: none;
+    background: transparent !important;
 }
 #custom-animation>div{
     background: #E1DFDD;
-    padding-top: 45px;
-    padding-bottom: 45px;
+    padding-top: 28px;
+    padding-bottom: 28px;
+}
+#custom-animation>div>div[data-value="videos"]{
+    padding-bottom: 0;
 }
 .tabContentWrapper{
     gap: 40px;
@@ -337,7 +341,7 @@ input{
         gap: 32px 42px ;
     }
     #custom-animation>div{
-        padding-top: 99px;
-        padding-bottom: 98px;
+        padding-top: 45px;
+        padding-bottom: 45px;
     }
 }

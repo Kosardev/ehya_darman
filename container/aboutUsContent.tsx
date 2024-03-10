@@ -5,9 +5,8 @@ import AboutUsComponent from "@/components/aboutUs/AboutUsComponent";
 
 export default async function AboutUsContent() {
     const data =await getAboutUsInfo()
+    console.log("AboutUsContent",data)
     return (
-        <BaseContainer>
-            <AboutUsComponent data={data}/>
-        </BaseContainer>
+        <AboutUsComponent data={data}/>
     )
 }
