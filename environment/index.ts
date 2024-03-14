@@ -12,6 +12,7 @@ export const Uri = {
     contactUsIP:SiteAddress+"/general/contactUs",
     branchesIP:SiteAddress+"/general/branches",
     aboutIP:SiteAddress+"/general/aboutUs",
+    checkAuth:SiteAddress+"/auth/checkAuth",
     ServiceIP: SiteAddress,
 } as const;
 

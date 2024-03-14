@@ -9,6 +9,9 @@ import {Scalars} from "@/lib/types";
 import {useState} from "react";
 import {SignUp} from "@/application/account";
 import {ValidationError} from "yup";
+import {useCommon} from "@/lib/hooks/common";
+import {Paths} from "@/environment";
+import {useRouter} from "next/navigation";
 type formValues = signUp &{
     confirmPassword: Scalars["String"]
 };
@@ -43,6 +46,8 @@ const schema = yup.object().shape({
     ,
 });
 export default function SignupPage() {
+    const router = useRouter()
+    const {setSnackBar,setLoading} = useCommon()
     const [form,setForm] = useState<formValues>({
         firstName: "",
         lastName: "",
@@ -60,6 +65,7 @@ export default function SignupPage() {
         confirmPassword: "",
     })
     const submitData =async () => {
+        setLoading({show:true})
         const obj ={
             firstName:form?.firstName??"",
             lastName: form?.lastName??"",
@@ -68,11 +74,13 @@ export default function SignupPage() {
             password: form?.password??"",
         }
         const result = await SignUp(obj)
+        setLoading({show:false})
         console.log("result",result)
-        if(!result?.data?.error){
-
-        }else{
-
+        if(result?.status ===200){
+            setSnackBar({show:true,message:result?.data?.message??" ثبت نام شما با موفقیت انجام شد",error:false,icon:""})
+            router.replace(Paths.login)
+        }else {
+            setSnackBar({show:true,message:result?.data?.message??" عملیات با خطا مواجه شد",error:false,icon:""})
         }
     }
     const submit =async (e:any) => {
@@ -86,7 +94,7 @@ export default function SignupPage() {
                 password: "",
                 confirmPassword: "",
             });
-            console.log("start request")
+            console.log("start request",validation)
             submitData()
         }).catch((validationErrors)=>{
             const newErrorState = {};
@@ -99,11 +107,12 @@ export default function SignupPage() {
         })
         console.log("onSubmit",form);
     };
+    console.log("error is",error)
     return (
         <>
             <h1 className="flex items-center font-yekanBakh mt-4 mb-[55px] xs:mb-[50px] ">
                 <span className="text-base font-medium leading-5 xs:text-[22px] xs:leading-6">ثبت نام</span></h1>
-            <Form className=" w-full flex flex-col" onSubmit={submit}>
+            <Form className=" w-full flex flex-col md-min-w-700" onSubmit={submit}>
                 <div className={"w-full grid lg:grid-cols-2 gap-x-4 gap-y-8"}>
                     <div className="relative mb-[30px]">
                         <InputLabelFloat
@@ -114,7 +123,7 @@ export default function SignupPage() {
                             value={form?.firstName??""}
                             onChange={e =>{
                                 setForm({...form,firstName:e.target.value})
-                                setError({...form,firstName:""})
+                                setError({...error,firstName:""})
                             }}
 
                         />
@@ -128,7 +137,7 @@ export default function SignupPage() {
                             value={form?.lastName??""}
                             onChange={e => {
                                 setForm({...form, lastName: e.target.value})
-                                setError({...form,lastName:""})
+                                setError({...error,lastName:""})
                             }}
                         />
                         {error?.lastName &&<ErrorField error={error.lastName}/>}
@@ -142,7 +151,7 @@ export default function SignupPage() {
                             value={form?.phone??""}
                             onChange={e => {
                                 setForm({...form, phone: e.target.value})
-                                setError({...form,phone:""})
+                                setError({...error,phone:""})
                             }}
 
                         />
@@ -156,7 +165,7 @@ export default function SignupPage() {
                             value={form?.email??""}
                             onChange={e =>{
                                 setForm({...form,email:e.target.value})
-                                setError({...form,email:""})
+                                setError({...error,email:""})
                             }}
 
                         />
@@ -170,7 +179,7 @@ export default function SignupPage() {
                             value={form?.password??""}
                             onChange={e => {
                                 setForm({...form, password: e.target.value})
-                                setError({...form,password:""})
+                                setError({...error,password:""})
                             }}
 
                         />
@@ -184,7 +193,7 @@ export default function SignupPage() {
                             value={form?.confirmPassword??""}
                             onChange={e => {
                                 setForm({...form, confirmPassword: e.target.value})
-                                setError({...form,confirmPassword:""})
+                                setError({...error,confirmPassword:""})
                             }}
                         />
                         {error?.confirmPassword &&<ErrorField error={error.confirmPassword}/>}

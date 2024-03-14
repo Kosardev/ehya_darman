@@ -8,7 +8,8 @@ import "swiper/css/autoplay";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import '../styles/globals.css'
-
+import CommonProvider from "@/lib/hooks/common";
+// import 'react-tabs/style/react-tabs.css';
 // const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -24,7 +25,9 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl"  className={`${yekanBakh.variable} ${yekanBakhEn.variable} `}>
       <body>
+      <CommonProvider>
           {children}
+      </CommonProvider>
       </body>
     </html>
   )

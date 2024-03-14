@@ -1,19 +1,19 @@
 import {Uri} from "@/environment";
 import RequestBuilder from "@/application/rest-request";
 import {AxiosResponse} from "axios";
-import {signUp} from "@/lib/types/account";
+import {signUp, TLogin} from "@/lib/types/account";
 
-export const Login = async (request: {}):Promise<AxiosResponse>=>{
-    console.log("Login data",Uri.loginServiceIP,request)
-    const verifyCallback = new RequestBuilder ("POST",Uri.loginServiceIP).addHeader( "Content-Type","application/json").setBody({...request}).ExecuteAsync()
+export const Login = async (data:TLogin):Promise<AxiosResponse>=>{
+    console.log("Login data",Uri.loginServiceIP,data)
+    const verifyCallback = new RequestBuilder ("POST",Uri.loginServiceIP).addHeader( "Content-Type","application/json").setBody({...data}).ExecuteAsync()
     return await verifyCallback;
 }
 
-export async function SignUp(dta:signUp) {
+export async function SignUp(data:signUp) {
     try {
-        console.log("SignUp data",Uri.loginServiceIP,dta)
-        const verifyCallback = new RequestBuilder ("POST",Uri.signupServiceIP).addHeader( "Content-Type","application/json").setBody({...dta}).ExecuteAsync()
-        console.log("SignUp data22",Uri.loginServiceIP,dta)
+        console.log("SignUp data",Uri.loginServiceIP,data)
+        const verifyCallback = new RequestBuilder ("POST",Uri.signupServiceIP).addHeader( "Content-Type","application/json").setBody({...data}).ExecuteAsync()
+        console.log("SignUp data22",Uri.loginServiceIP,data)
         return await verifyCallback;
     } catch (e) {
         throw new Error('Failed to create task')

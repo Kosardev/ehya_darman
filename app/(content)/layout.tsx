@@ -1,7 +1,6 @@
 import React, { ReactNode } from "react";
 import Header from "@/components/common/header/header";
-import Footer from "@/components/common/footer";
-import CFooter from "@/components/common/footer";
+import FooterComponent from "@/components/common/footer";
 
 
 type ScreenLayoutT = {
@@ -18,7 +17,7 @@ export default function ScreenLayout({ children,transparentHeader }:ScreenLayout
                 className={'w-full '}>
                 {children}
             </main>
-          <CFooter />
+          <FooterComponent />
         </>
     );
 };

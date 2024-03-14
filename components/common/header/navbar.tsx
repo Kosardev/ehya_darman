@@ -14,6 +14,7 @@ import classNames from "classnames";
 import {Paths} from "@/environment";
 import cn from "classnames";
 import * as Path from "path";
+import {useCommon} from "@/lib/hooks/common";
 
 interface NavbarProps {
     menu: HeaderT | null;
@@ -23,6 +24,7 @@ interface NavbarProps {
 export default function Navbar({ menu,transparentHeader}: NavbarProps) {
     const [activeMenu,setActiveMenu] = useState<number[]>([])
     const [showMobileMenu,setShowMobileMenu] = useState<boolean>(false)
+    const {checkAuth} = useCommon()
 
     return (
        <div className={'group-hover:bg-white '}>
@@ -127,7 +129,9 @@ export default function Navbar({ menu,transparentHeader}: NavbarProps) {
                    </ul>
                    <div className='flex items-center gap-3 pb-2 lg:gap-6 lg:pb-4'>
                        <Search transparentHeader={!!transparentHeader}/>
-                       <Link className='flex items-center justify-center' href='#'><Icon name="user-bold" size="w-4 h-4 lg:w-8 lg:h-8" color={transparentHeader ? "fill-white group-hover:fill-red-ehya":"fill-black"}/></Link>
+                       <Link className='flex items-center justify-center' href={checkAuth?"#":Paths.login}>
+                           <Icon name={checkAuth?"user-bold":"arrow-left"} size="w-4 h-4 lg:w-8 lg:h-8" color={transparentHeader ? "fill-white group-hover:fill-red-ehya":"fill-black"}/>
+                       </Link>
                    </div>
                </nav>
            </BaseContainer>

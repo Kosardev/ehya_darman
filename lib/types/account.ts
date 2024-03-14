@@ -1,5 +1,9 @@
-import {Maybe, Scalars} from "@/lib/types/mainService";
+import { Scalars} from "@/lib/types/mainService";
 
+export type TLogin ={
+    username: Scalars["String"],
+    password: Scalars["String"]
+}
 export type signUp ={
     firstName: Scalars["String"],
     lastName: Scalars["String"],

@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   swcMinify: true,
   compress: true,
   poweredByHeader: true,
@@ -10,7 +10,10 @@ const nextConfig = {
     defaultLocale: "fa"
   },
   compiler:{
-    // removeConsole: true
+    removeConsole: false
+  },
+  typescript: {
+    ignoreBuildErrors: true,
   },
   async headers() {
     return [

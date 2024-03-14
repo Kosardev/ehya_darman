@@ -114,9 +114,9 @@ export default function ContactUsComponent({data,citiesBranches}:ContactUsWrappe
     }
     return (
         <BaseContainer>
-            <h1 className={"w-full text-black-2 font-shabnam font-bold text-xl my-[60px]"}>با ما در تماس باشید</h1>
-            <div className={"flex flex-wrap lg:flex-nowrap items-center gap-10  mb-[57px]"}>
-                <div className={"w-full md:w-[40%] lg:w-[350px] relative"} ref={branchesRef}>
+            <div className={"flex flex-wrap lg:flex-nowrap items-center gap-10  my-10"}>
+                <h1 className={" text-black-2 font-shabnam font-bold text-xl"}>با ما در تماس باشید</h1>
+                <div className={" md:w-[40%] lg:w-[350px] relative"} ref={branchesRef}>
                     <button className={"w-full border-b border-black pb-2 flex items-center justify-between px-1"} onClick={()=>setBranchOpen(!branchOpen)}>
                         <span className={"text-black-2 font-shabnam font-bold text-lg"}>{selectedBranch?selectedBranch?.title:"شعبه"}</span>
                         <Icon name={"arrow-left"} className={branchOpen?"rotate-90":"-rotate-90"} color={"fill-black-2"}/>
@@ -169,23 +169,23 @@ export default function ContactUsComponent({data,citiesBranches}:ContactUsWrappe
                 {/*    }*/}
                 {/*</div>*/}
             </div>
-            <div className={"w-full bg-gray-f6 px-[78px] py-[54px] mb-[87px]"}>
+            <div className={"w-full bg-gray-f6 px-[78px] py-[54px] mb-10"}>
                 <h2 className={"w-full text-black-2 font-shabnam font-bold text-xl mb-[42px] "}>{data?.banner?.title??""}</h2>
                 <div className={"w-full "}>
                     {generateContent()}
                 </div>
             </div>
             <div className={"w-full mb-[60px]"}>
-                <h2 className={"w-full text-black-2 font-shabnam font-bold text-xl mb-[42px] "}>از طریق فرم زیر با ما در تماس باشید</h2>
+                <h2 className={"w-full text-black-2 font-shabnam font-bold text-xl mb-8 "}>از طریق فرم زیر با ما در تماس باشید</h2>
                 <div className={"flex flex-wrap lg:flex-nowrap items-stretch justify-between gap-20"}>
                     <ContactForm
                         // cities={citiesBranches?.cities?.map((item)=>{return {value:item?.code , label:item?.title}})??[]}
                     />
                     <figure className='relative pr-[30px] pt-[20px]'>
                                 <span  className='absolute top-0 right-0'>
-                                    <Svgs name={'contactFormBg'} width={338} height={566}/>
+                                    <Svgs name={'contactFormBg'} width={313} height={470}/>
                                 </span>
-                        <Image src={data?.formImage??""} alt={data?.banner?.title??""} width={359} height={536}
+                        <Image src={data?.formImage??""} alt={data?.banner?.title??""} width={293} height={440}
                                className='rounded-lg object-cover object-bottom border'/>
                     </figure>
                 </div>
