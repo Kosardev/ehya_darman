@@ -64,7 +64,7 @@ const config = withMT({
       white: {
         DEFAULT: defaultColors.white,
         500: 'rgba(255,255,255,0.5)',
-        near: '#FDFDFD',
+        near: '#FAFAFA',
 
       },
       green: {

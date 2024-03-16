@@ -16,6 +16,7 @@ import {ProductPageType} from "@/lib/types";
 import Icon from "@/components/common/Icon";
 import {useState} from "react";
 import VideoTab from "@/components/pdp/videoTab";
+import ReactPlayer from "react-player";
 
 export default function PdpTabs({ data }:ProductPageType) {
 
@@ -28,11 +29,11 @@ export default function PdpTabs({ data }:ProductPageType) {
             <Visible visible={!!(data?.introduction?.text || data?.expertCheck?.data?.length  || data?.frequentlyAskedQuestions?.length|| data?.videos?.length || data?.technicalData?.length )}>
                 <Tabs theme id="custom-animation" value="introduction">
                     <TabsHeader className={"tabHeaders"}>
-                        {!!data?.introduction?.text && <Tab activeClassName="bg-gray-e1 text-red-ehya !px-5 text-xl font-bold" key={"Introduction"}  value={"introduction"}>معرفی</Tab>}
-                        {!!data?.expertCheck?.data?.length && <Tab activeClassName="bg-gray-e1 text-red-ehya !px-5 text-xl font-bold" key={"ExpertCheck"}  value={"expertCheck"}>بررسی تخصصی</Tab>}
-                        {!!data?.technicalData?.length && <Tab activeClassName="bg-gray-e1 text-red-ehya !px-5 text-xl font-bold" key={"TechnicalData"}  value={"technicalData"}>مشخصات فنی</Tab>}
-                        {!!data?.videos?.length && <Tab activeClassName="bg-gray-e1 text-red-ehya !px-5 text-xl font-bold" key={"Videos"}  value={"videos"}>ویدئوها</Tab>}
-                        {!!data?.frequentlyAskedQuestions?.length && <Tab activeClassName="bg-gray-e1 text-red-ehya !px-5 text-xl font-bold" key={"FrequentlyAskedQuestions"}  value={"frequentlyAskedQuestions"}>پرسش ها</Tab>}
+                        {!!data?.introduction?.text && <Tab activeClassName="bg-gray-e1 text-red-ehya !px-6 text-xl font-bold" key={"Introduction"}  value={"introduction"}>معرفی</Tab>}
+                        {!!data?.expertCheck?.data?.length && <Tab activeClassName="bg-gray-e1 text-red-ehya !px-6 text-xl font-bold" key={"ExpertCheck"}  value={"expertCheck"}>بررسی تخصصی</Tab>}
+                        {!!data?.technicalData?.length && <Tab activeClassName="bg-gray-e1 text-red-ehya !px-6 text-xl font-bold" key={"TechnicalData"}  value={"technicalData"}>مشخصات فنی</Tab>}
+                        {!!data?.videos?.length && <Tab activeClassName="bg-gray-e1 text-red-ehya !px-6 text-xl font-bold" key={"Videos"}  value={"videos"}>ویدئوها</Tab>}
+                        {!!data?.frequentlyAskedQuestions?.length && <Tab activeClassName="bg-gray-e1 text-red-ehya !px-6 text-xl font-bold" key={"FrequentlyAskedQuestions"}  value={"frequentlyAskedQuestions"}>پرسش ها</Tab>}
                     </TabsHeader>
                     <TabsBody animate={{
                         initial: { y: 250 },
@@ -56,13 +57,22 @@ export default function PdpTabs({ data }:ProductPageType) {
                                     </div>
                                     <Visible visible={!!(data?.introduction?.image || data?.introduction?.video)}>
                                         {data?.introduction?.video ?
-                                            <div className={"relative "}>
-                                                <video controls className={"videoPlayer tabImage "} poster={data?.introduction?.image ?? ""}>
-                                                    <source src={data?.introduction?.video ?? ""} type={"video/mp4"}/>
-                                                </video>
-                                                <span className={"playIcon"}>
-                                                <Icon name={"play"} size={"w-9 h-9"} color={"fill-white"}/>
-                                           </span>
+                                            <div className={"relative w-1/3 player-wrapper h-60 rounded-lg flex justify-center items-center overflow-hidden"}>
+                                                <ReactPlayer
+                                                    light={<Image src={"/img/videoPoster.jpg"} layout={"fill"} width={"100%"} height={"100%"} alt={data?.introduction?.title??""}/>}
+                                                    controls={true}
+                                                    className='react-player'
+                                                    url={data?.introduction?.video ?? ""}
+                                                    width='100%'
+                                                    height='100%'
+                                                    playIcon={<Icon name={"play"} size={"w-14 h-14 p-3"} className={'z-10 bg-red-ehya rounded-full'} color={"fill-white"}/>}
+                                                />
+                                                {/*<video controls className={"videoPlayer tabImage "} poster={data?.introduction?.image ?? ""}>*/}
+                                                {/*    <source src={data?.introduction?.video ?? ""} type={"video/mp4"}/>*/}
+                                                {/*</video>*/}
+                                                {/*<span className={"playIcon"}>*/}
+                                                {/*    <Icon name={"play"} size={"w-9 h-9"} color={"fill-white"}/>*/}
+                                                {/*</span>*/}
                                             </div>
                                             :
                                             <Image
@@ -90,7 +100,7 @@ export default function PdpTabs({ data }:ProductPageType) {
                         {!!data?.technicalData?.length && <TabPanel className={"bg-gray-e1"} key={"TechnicalData"}  value={"technicalData"}>
                             <BaseContainer>
                                 <ul className={"technicalData"}>
-                                    {data?.technicalData?.map(item => <li className={"py-6 w-full flex border-b border-white last:border-b-0 gap-4 ltr"} key={item?._id}>
+                                    {data?.technicalData?.map(item => <li className={"py-2.5 w-full flex border-b border-white last:border-b-0 gap-4 ltr"} key={item?._id}>
                                         <h4 className={"w-2/12 font-kalamehFa "}>{item?.key} :</h4>
                                         <p className={"grow font-shabnam flex gap-1.5 items-center flex-wrap  "}>{item?.values?.map((value, key) => <span
                                             key={key}>{(key !== 0 ? " , " : "") + value}</span>)}</p>

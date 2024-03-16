@@ -16,3 +16,15 @@ export type snackBar = {
     error:boolean
 }
 export type searchParamT =  { [key: string]: string | string[] | undefined }
+
+export type breadCrumbsT =  {
+    breadCrumbs?: Maybe<Array<Maybe<breadCrumbsItemT>>>
+}
+export type breadCrumbsItemT = {
+    title?: Maybe<string>,
+    link?: Maybe<string>,
+}
+export type QueryGet_BreadCrumbsArgs =  {
+    code?: Maybe<string>,
+    type?: Maybe<string>,
+}

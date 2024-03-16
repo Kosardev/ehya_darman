@@ -59,7 +59,7 @@ export default function PdpComponent({ data }:ProductPageType) {
                         </figure>
                     </Visible>
                 </section>
-                {/*<ThreeD/>*/}
+                <ThreeD/>
             </BaseContainer>
             <PdpTabs data={data}/>
             <Visible visible={!!data?.similarProducts?.length}>

@@ -1,5 +1,6 @@
 export type Icons =
     | "globe"
+    | "logout"
     | "Loc"
     | "search"
     | "search1"

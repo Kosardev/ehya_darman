@@ -113,10 +113,9 @@ export default class RequestBuilder {
                 data: this.body,
                 onUploadProgress: this.progressCallBack,
             });
-            console.log("result is ",result)
+
             return result;
         }catch (err){
-            console.log("result is ",err)
             console.log(err)
         }
 

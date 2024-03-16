@@ -22,7 +22,7 @@ export default function BlogWrapper({ articles }:LandingBlogWrapperT){
             entries.forEach(entry => setVisible(entry.isIntersecting));
         });
         observer.observe(domRef?.current);
-        return () => observer.unobserve(domRef?.current);
+        return () => observer?.unobserve(domRef?.current);
     }, []);
 
     return (

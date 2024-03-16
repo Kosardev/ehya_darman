@@ -24,10 +24,22 @@
     cursor: pointer;
     border:1px solid #E5443E;
 }
-
+.catalogueSwiper .swiper-pagination-bullet {
+    width: 38px;
+    height: 5px;
+    border-radius: 5px;
+    opacity: 1;
+    margin: 0 5px;
+    border: none;
+    background: #212121;
+}
 .swiper-pagination-bullet-active {
     background-color: #E5443E;
     opacity: 1;
+}
+.catalogueSwiper .swiper-pagination-bullet-active {
+    width: 70px;
+    background: #E5443E;
 }
 .swiper-slide {
     width: 100%;

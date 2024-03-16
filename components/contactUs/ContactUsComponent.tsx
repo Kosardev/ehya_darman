@@ -26,11 +26,11 @@ export default function ContactUsComponent({data,citiesBranches}:ContactUsWrappe
     // const [cityOpen,setCityOpen] = useState<boolean>(false)
     // const [selectedCity,setSelectedCity] = useState<branchCityItem>(null)
     // const cityRef = useRef(null)
-    console.log("data in contactus>>>>",data,citiesBranches)
+
     useEffect(()=>{
         function  handleClickOutside(event){
             if (branchesRef.current && !branchesRef.current.contains(event.target)) {
-                console.log("open>>>>>>>>>>>>>>>>>>>>",open)
+
                 setBranchOpen(false)
             }
         }

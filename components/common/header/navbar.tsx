@@ -130,7 +130,9 @@ export default function Navbar({ menu,transparentHeader}: NavbarProps) {
                    <div className='flex items-center gap-3 pb-2 lg:gap-6 lg:pb-4'>
                        <Search transparentHeader={!!transparentHeader}/>
                        <Link className='flex items-center justify-center' href={checkAuth?"#":Paths.login}>
-                           <Icon name={checkAuth?"user-bold":"arrow-left"} size="w-4 h-4 lg:w-8 lg:h-8" color={transparentHeader ? "fill-white group-hover:fill-red-ehya":"fill-black"}/>
+                           <Icon name={checkAuth?"user-bold":"logout"} size={classNames("w-4 h-4 lg:w-8 lg:h-8",{
+                               "w-4 h-4 lg:!w-6 lg:!h-6" : !checkAuth
+                           })} color={transparentHeader ? "fill-white group-hover:fill-red-ehya":"fill-black"}/>
                        </Link>
                    </div>
                </nav>

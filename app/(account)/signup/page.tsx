@@ -75,7 +75,6 @@ export default function SignupPage() {
         }
         const result = await SignUp(obj)
         setLoading({show:false})
-        console.log("result",result)
         if(result?.status ===200){
             setSnackBar({show:true,message:result?.data?.message??" ثبت نام شما با موفقیت انجام شد",error:false,icon:""})
             router.replace(Paths.login)
@@ -94,7 +93,6 @@ export default function SignupPage() {
                 password: "",
                 confirmPassword: "",
             });
-            console.log("start request",validation)
             submitData()
         }).catch((validationErrors)=>{
             const newErrorState = {};
@@ -103,11 +101,8 @@ export default function SignupPage() {
                 newErrorState[error?.path??'0'] = error.message;
             });
             setError(newErrorState as formValues);
-            console.log("Form data is invalid");
         })
-        console.log("onSubmit",form);
     };
-    console.log("error is",error)
     return (
         <>
             <h1 className="flex items-center font-yekanBakh mt-4 mb-[55px] xs:mb-[50px] ">

@@ -172,16 +172,16 @@ input{
     width: fit-content;
     padding-top: 12px;
     padding-bottom: 12px;
+    padding-right: 12px !important;
+    padding-left: 12px !important;
  }
 .tabHeaders >li.text-red-ehya {
     background: #E1DFDD;
     border: none;
     color: #E5443E;
-    border-radius: 0!important;
+    border-radius: 0 !important;
     font-weight: bold;
     font-size: 20px;
-    padding-right: 20px;
-    padding-left: 20px;
 }
 .tabHeaders >li.text-red-ehya>div:nth-of-type(2){
     display: none;
@@ -264,8 +264,12 @@ input{
     justify-content: center;
     align-items: center;
 }
-
-.videoPlayer.played + .playIcon {
+.videoPlayer{
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.videoPlayer:playing ~ .playIcon {
     display: none; /* Hide icon when video has been played */
 }
 .bg-white-500{
